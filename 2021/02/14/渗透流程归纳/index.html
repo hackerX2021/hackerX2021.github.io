@@ -28,7 +28,7 @@
 <meta property="og:description" content="写在开头：　　知识面，决定看到的攻击面有多广。　　知识链，决定发动的杀伤链有多深。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-14T03:57:37.000Z">
-<meta property="article:modified_time" content="2021-02-14T07:14:18.845Z">
+<meta property="article:modified_time" content="2021-02-14T14:58:28.403Z">
 <meta property="article:author" content="Mr.M">
 <meta property="article:tag" content="精华">
 <meta name="twitter:card" content="summary">
@@ -214,7 +214,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-02-14 11:57:37 / 修改时间：15:14:18" itemprop="dateCreated datePublished" datetime="2021-02-14T11:57:37+08:00">2021-02-14</time>
+              <time title="创建时间：2021-02-14 11:57:37 / 修改时间：22:58:28" itemprop="dateCreated datePublished" datetime="2021-02-14T11:57:37+08:00">2021-02-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -258,7 +258,7 @@
     forks:&gt;1000 test           #forks数量大于1000的搜索关键字
     forks:1000..3000 test      #forks数量大于1000小于3000的搜索关键字
     size:&gt;=5000 test           #指定仓库大于5000k(5M)的搜索关键字
-    pushed:&gt;2019-02-12 test    #发布时间大于2019-02-12的搜索关键字
+    pushed:&gt;2019-02-12 test    #发布时间大于        2019-02-12的搜索关键字
     created:&gt;2019-02-12 test   #创建时间大于2019-02-12的搜索关键字
     user:test                  #用户名搜素
     license:apache-2.0 test    #明确仓库的 LICENSE 搜索关键字
@@ -266,6 +266,23 @@
     user:test in:name test     #组合搜索,用户名test的标题含有test的
 </code></pre>
 <p>　　　　　　<br>　　　　　　网盘泄露：<br>　　　　　　各种云网盘，详见虫部落搜索:<br>　　　　　　magnet.chongbuluo.com<br>　　　　　　敏感路径扫描：<br>　　　　　　<a target="_blank" rel="noopener" href="https://github.com/ring04h/weakfilescan">https://github.com/ring04h/weakfilescan</a></p>
+<h2 id="2-OSINT-公开情报收集"><a href="#2-OSINT-公开情报收集" class="headerlink" title="2.OSINT 公开情报收集"></a>2.OSINT 公开情报收集</h2><h3 id="2-1社工技巧"><a href="#2-1社工技巧" class="headerlink" title="2.1社工技巧"></a>2.1社工技巧</h3><p>　　<strong>查看注册的网站</strong>：0xreg reg007<br>　　　　知道账号去已注册的网站找回密码，可以看到打码后的用户名、邮箱、真实姓名等信息，如果运气好没准能从数据包或html中找到未被打码的信息<br>　　　　<br>　　<strong>可以从这些方面判断用户是否注册过</strong><br>　　　　找回密码<br>　　　　　　输入账号，如果进入下一步了则该账号存在<br>　　　　登录<br>　　　　　　输入账号和密码，如果提示密码错误，则表示该用户已存在<br>　　　　注册<br>　　　　　　填写账号时一般网站会去检测该账号是否已存在，如果已存在则会提示不可重复注册<br>　　　　<br>　　<strong>知道QQ</strong><br>　　　　通过QQ邮箱和QQ号搜索支付宝、淘宝账号等其他可能的常用平台<br>　　　　去腾讯\新浪微博搜索<br>　　　　通过微信搜索<br>　　　　查看QQ空间\相册\地区\星座\生日\昵称(后续构建字典以及跨平台搜集)<br>　　　　通过说说、留言、日志找到其好友<br>　　　　加QQ钓鱼\共同好友\可能认识的人<br>　　<strong>知道手机号</strong><br>　　　　搜索QQ、微信、钉钉等社交账号<br>　　　　在比较火的一些APP和网站上注册或忘记密码来判断是否注册过账号<br>　　　　查询支付宝、QQ交易账号，尝试输入常见姓氏获取名字(转账到该手机号,会提示输入姓氏验证)<br>　　　　通过对方的职业、兴趣找到该领域知名度较高的社交网站反查<br>　　　　根据在QQ空间、朋友圈等动态用百度识图识别照片<br>　　　　在微博、ins、Twitter、fb、百度贴吧搜索相近关键字，按地域、年龄、男女、用户名等筛选<br>　　<strong>留意社交动态</strong><br>　　　　发布时间线<br>　　　　使用什么客户端 iPhone Android还是浏览器<br>　　　　　　针对客户端预先制定exploit<br>　　　　　　注意每一条链接  / 图片 / 视频链接可能包含用户ID<br>　　　　　　图片可能包含水印，exif可能会有GPS定位和手机类型,图片内容特征<br>　　　　　　视频也有可能有水印暴露社交账号ID,拍摄地点<br>　　　　　　从最早发布的动态看起，会有很大收获<br>　　　　　　一般得到一个账号的密码就相当于得到了其他账号的密码<br>　　　　　　一般人不同账号的用户名都是相同或相近的<br>　　　　　　一般人的社交账号头像用的都是一样的<br>　　　　　　尝试破解社保、公积金账号、身份证号（出生地、生日、星座、派出所代码）<br>　　　　<br>　　虫部落快搜之文件搜索:<a target="_blank" rel="noopener" href="https://search.chongbuluo.com/">https://search.chongbuluo.com/</a><br>　　<br>　　qq群、群文件、贴吧论坛、目标自用论坛等社交平台钓鱼和信息泄露(爬邮箱等信息)<br>　　<br>　　电子邮件伪造、网络钓鱼<br>　　　　下载恶意程序<br>　　　　输入敏感信息<br>　　<br>　　　大部分信息可以用来生成密码字典<br>　　　<br>　　　对人：说服对方达成一致、恐吓对方（敏感词、漏洞、病毒、权威机构名称、），钓鱼获取信息</p>
+<h3 id="2-2搜索引擎OSINT"><a href="#2-2搜索引擎OSINT" class="headerlink" title="2.2搜索引擎OSINT"></a>2.2搜索引擎OSINT</h3><p>　　<strong>Google Hacking</strong>(baidu\bing\souhu\github)<br>　　GoogleHacking常用语法<br>　　　　1、intext：（仅针对Google有效） 把网页中的正文内容中的某个字符作为搜索的条件<br>　　　　2、intitle： 把网页标题中的某个字符作为搜索的条件<br>　　　　3、cache： 搜索搜索引擎里关于某些内容的缓存，可能会在过期内容中发现有价值的信息<br>　　　　4、filetype/ext： 指定一个格式类型的文件作为搜索对象<br>　　　　5、inurl： 搜索包含指定字符的URL<br>　　　　6、site： 在指定的(域名)站点搜索相关内容　　<br>　　GoogleHacking其他语法<br>　　　　1、引号 ” ” 把关键字打上引号后，把引号部分作为整体来搜索<br>　　　　2、or 同时搜索两个或更多的关键字<br>　　　　3、link 搜索某个网站的链接 link:baidu.com即返回所有和baidu做了链接的URL<br>　　　　4、info 查找指定站点的一些基本信息　　GoogleHackingDatabase:<br>　　　　google-hacking-databaseGoogleHacking典型用法(特定资产的万能密码也要积累)</p>
+<p>　　管理后台地址<br>　　　　site:target.com intext:管理 | 后台 | 后台管理 | 登陆 | 登录 | 用户名 | 密码 | 系统 | 账号 | login | system<br>　　　　site:target.com inurl:login | inurl:admin | inurl:manage | inurl:manager | inurl:admin_login | inurl:system | inurl:backend<br>　　　　site:target.com intitle:管理 | 后台 | 后台管理 | 登陆 | 登录</p>
+<p>　　上传类漏洞地址<br>　　　　site:target.com inurl:file<br>　　　　site:target.com inurl:upload</p>
+<p>　　注入页面<br>　　　　site:target.com inurl:php?id=<br>　　（批量注入工具、结合搜索引擎）</p>
+<p>　　编辑器页面<br>　　　　site:target.com inurl:ewebeditor</p>
+<p>　　目录遍历漏洞<br>　　　　site:target.com intitle:index.of</p>
+<p>　　SQL错误<br>　　　　site:target.com intext:”sql syntax near” | intext:”syntax error has occurred” | intext:”incorrect syntax near” | intext:”unexpected end of SQL command” | intext:”Warning: mysql_connect()” | intext:”Warning: mysql_query()” | intext:”Warning: pg_connect()”</p>
+<p>　　phpinfo()<br>　　　　site:target.com ext:php intitle:phpinfo “published by the PHP Group”</p>
+<p>　　配置文件泄露<br>　　　　site:target.com ext:.xml | .conf | .cnf | .reg | .inf | .rdp | .cfg | .txt | .ora | .ini</p>
+<p>　　数据库文件泄露<br>　　　　site:target.com ext:.sql | .dbf | .mdb | .db<br>　　<br>　　日志文件泄露<br>　　　　site:target.com ext:.log</p>
+<p>　　备份和历史文件泄露<br>　　　　site:target.com ext:.bkf | .bkp | .old | .backup | .bak | .swp | .rar | .txt | .zip | .7z | .sql | .tar.gz | .tgz | .tar</p>
+<p>　　公开文件泄露<br>　　　　site:target.com filetype:.doc | .docx | .xls | .xlsx | .ppt | .pptx | .odt | .pdf | .rtf | .sxw | .psw | .csv</p>
+<p>　　邮箱信息<br>　　　　site:target.com intext:@target.com<br>　　　　site:target.com 邮件<br>　　　　site:target.com email</p>
+<p>　　社工信息<br>　　　　site:target.com intitle:账号 | 密码 | 工号 | 学号 | 身份证</p>
+<h3 id="2-3浏览器实用插件："><a href="#2-3浏览器实用插件：" class="headerlink" title="2.3浏览器实用插件："></a>2.3浏览器实用插件：</h3><p>　　Wappalyzer：识别网站使用的中间件及其版本，再去漏洞库和搜索引擎找公开披露的漏洞<br>　　SwitchOmega：快捷切换代理<br>　　shodan：识别开放端口，主机服务等（被动信息搜集）<br>　　hacktools:综合插件,很强大<br>　　firefox渗透便携版version48,工具集成很多<br>　　注意：根据获得服务、中间件信息、编辑器版本、数据库等OSINT去各大漏洞库、搜索引擎找漏洞利用</p>
+<h3 id="2-4乌云和cnvd"><a href="#2-4乌云和cnvd" class="headerlink" title="2.4乌云和cnvd"></a>2.4乌云和cnvd</h3><p>　　乌云库\乌云镜像\GHDB\CNVD等公开漏洞库</p>
 
     </div>
 
@@ -365,7 +382,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%BC%80%E5%A4%B4%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">写在开头：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x00-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="nav-number">2.</span> <span class="nav-text">0x00 信息收集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%9B%AE%E6%A0%87%E7%A1%AE%E8%AE%A4"><span class="nav-number">2.1.</span> <span class="nav-text">1.目标确认</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1%E5%9F%9F%E5%90%8D%E6%B3%A8%E5%86%8C%E4%BF%A1%E6%81%AF"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.1域名注册信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2DNS%E4%BF%A1%E6%81%AF%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.2DNS信息查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3%E6%B5%8B%E8%AF%95%E5%9F%9F%E4%BC%A0%E9%80%81%E6%BC%8F%E6%B4%9E"><span class="nav-number">2.1.3.</span> <span class="nav-text">1.3测试域传送漏洞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4%E4%B8%9A%E5%8A%A1%E7%9B%B8%E5%85%B3"><span class="nav-number">2.1.4.</span> <span class="nav-text">1.4业务相关</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%BC%80%E5%A4%B4%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">写在开头：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x00-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="nav-number">2.</span> <span class="nav-text">0x00 信息收集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%9B%AE%E6%A0%87%E7%A1%AE%E8%AE%A4"><span class="nav-number">2.1.</span> <span class="nav-text">1.目标确认</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1%E5%9F%9F%E5%90%8D%E6%B3%A8%E5%86%8C%E4%BF%A1%E6%81%AF"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.1域名注册信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2DNS%E4%BF%A1%E6%81%AF%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.2DNS信息查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3%E6%B5%8B%E8%AF%95%E5%9F%9F%E4%BC%A0%E9%80%81%E6%BC%8F%E6%B4%9E"><span class="nav-number">2.1.3.</span> <span class="nav-text">1.3测试域传送漏洞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4%E4%B8%9A%E5%8A%A1%E7%9B%B8%E5%85%B3"><span class="nav-number">2.1.4.</span> <span class="nav-text">1.4业务相关</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-OSINT-%E5%85%AC%E5%BC%80%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86"><span class="nav-number">2.2.</span> <span class="nav-text">2.OSINT 公开情报收集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1%E7%A4%BE%E5%B7%A5%E6%8A%80%E5%B7%A7"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1社工技巧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8EOSINT"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2搜索引擎OSINT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%9E%E7%94%A8%E6%8F%92%E4%BB%B6%EF%BC%9A"><span class="nav-number">2.2.3.</span> <span class="nav-text">2.3浏览器实用插件：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4%E4%B9%8C%E4%BA%91%E5%92%8Ccnvd"><span class="nav-number">2.2.4.</span> <span class="nav-text">2.4乌云和cnvd</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
