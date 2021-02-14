@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>hackerX2021</title>
   
-  <subtitle>技术分享博客</subtitle>
+  <subtitle>渗透技术分享博客</subtitle>
   <link href="https://hackerx2021.github.io/atom.xml" rel="self"/>
   
   <link href="https://hackerx2021.github.io/"/>
-  <updated>2021-02-14T04:27:32.835Z</updated>
+  <updated>2021-02-14T05:08:19.532Z</updated>
   <id>https://hackerx2021.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hackerx2021.github.io/2021/02/14/%E6%B8%97%E9%80%8F%E6%B5%81%E7%A8%8B%E5%BD%92%E7%BA%B3/"/>
     <id>https://hackerx2021.github.io/2021/02/14/%E6%B8%97%E9%80%8F%E6%B5%81%E7%A8%8B%E5%BD%92%E7%BA%B3/</id>
     <published>2021-02-14T03:57:37.000Z</published>
-    <updated>2021-02-14T04:27:32.835Z</updated>
+    <updated>2021-02-14T05:08:19.532Z</updated>
     
     <content type="html"><![CDATA[<h1 id="准备把印象笔记的有关内容迁移过来"><a href="#准备把印象笔记的有关内容迁移过来" class="headerlink" title="准备把印象笔记的有关内容迁移过来"></a>准备把印象笔记的有关内容迁移过来</h1><ul><li>渗透流程归纳<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su - root</span><br></pre></td></tr></table></figure></li></ul>]]></content>
     
@@ -40,22 +40,24 @@
   </entry>
   
   <entry>
-    <title>First</title>
+    <title>写在开始</title>
     <link href="https://hackerx2021.github.io/2021/02/14/First/"/>
     <id>https://hackerx2021.github.io/2021/02/14/First/</id>
     <published>2021-02-14T03:13:41.000Z</published>
-    <updated>2021-02-14T03:15:04.998Z</updated>
+    <updated>2021-02-14T04:57:40.497Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="记录自己学习渗透测试的历程"><a href="#记录自己学习渗透测试的历程" class="headerlink" title="记录自己学习渗透测试的历程"></a>记录自己学习渗透测试的历程</h1><h2 id="分享技术"><a href="#分享技术" class="headerlink" title="分享技术"></a>分享技术</h2>]]></content>
+    <content type="html"><![CDATA[<h1 id="这个blog用于记录学习渗透测试的经验"><a href="#这个blog用于记录学习渗透测试的经验" class="headerlink" title="这个blog用于记录学习渗透测试的经验"></a>这个blog用于记录学习渗透测试的经验</h1>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;记录自己学习渗透测试的历程&quot;&gt;&lt;a href=&quot;#记录自己学习渗透测试的历程&quot; class=&quot;headerlink&quot; title=&quot;记录自己学习渗透测试的历程&quot;&gt;&lt;/a&gt;记录自己学习渗透测试的历程&lt;/h1&gt;&lt;h2 id=&quot;分享技术&quot;&gt;&lt;a href=&quot;#分享技术&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;这个blog用于记录学习渗透测试的经验&quot;&gt;&lt;a href=&quot;#这个blog用于记录学习渗透测试的经验&quot; class=&quot;headerlink&quot; title=&quot;这个blog用于记录学习渗透测试的经验&quot;&gt;&lt;/a&gt;这个blog用于记录学习渗透测试的经验&lt;/h1&gt;</summary>
       
     
     
     
+    
+    <category term="init" scheme="https://hackerx2021.github.io/tags/init/"/>
     
   </entry>
   

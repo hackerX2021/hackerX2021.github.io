@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>First</title>
+    <title>写在开始</title>
     <url>/2021/02/14/First/</url>
-    <content><![CDATA[<h1 id="记录自己学习渗透测试的历程"><a href="#记录自己学习渗透测试的历程" class="headerlink" title="记录自己学习渗透测试的历程"></a>记录自己学习渗透测试的历程</h1><h2 id="分享技术"><a href="#分享技术" class="headerlink" title="分享技术"></a>分享技术</h2>]]></content>
+    <content><![CDATA[<h1 id="这个blog用于记录学习渗透测试的经验"><a href="#这个blog用于记录学习渗透测试的经验" class="headerlink" title="这个blog用于记录学习渗透测试的经验"></a>这个blog用于记录学习渗透测试的经验</h1>]]></content>
+      <tags>
+        <tag>init</tag>
+      </tags>
   </entry>
   <entry>
     <title>渗透流程归纳</title>
