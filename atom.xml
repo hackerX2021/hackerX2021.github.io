@@ -6,7 +6,7 @@
   <link href="https://hackerx2021.github.io/atom.xml" rel="self"/>
   
   <link href="https://hackerx2021.github.io/"/>
-  <updated>2021-02-14T05:08:19.532Z</updated>
+  <updated>2021-02-14T05:38:17.366Z</updated>
   <id>https://hackerx2021.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hackerx2021.github.io/2021/02/14/%E6%B8%97%E9%80%8F%E6%B5%81%E7%A8%8B%E5%BD%92%E7%BA%B3/"/>
     <id>https://hackerx2021.github.io/2021/02/14/%E6%B8%97%E9%80%8F%E6%B5%81%E7%A8%8B%E5%BD%92%E7%BA%B3/</id>
     <published>2021-02-14T03:57:37.000Z</published>
-    <updated>2021-02-14T05:08:19.532Z</updated>
+    <updated>2021-02-14T05:38:17.366Z</updated>
     
     <content type="html"><![CDATA[<h1 id="准备把印象笔记的有关内容迁移过来"><a href="#准备把印象笔记的有关内容迁移过来" class="headerlink" title="准备把印象笔记的有关内容迁移过来"></a>准备把印象笔记的有关内容迁移过来</h1><ul><li>渗透流程归纳<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su - root</span><br></pre></td></tr></table></figure></li></ul>]]></content>
     
@@ -33,6 +33,8 @@
       
     
     
+    
+    <category term="归纳总结" scheme="https://hackerx2021.github.io/categories/%E5%BD%92%E7%BA%B3%E6%80%BB%E7%BB%93/"/>
     
     
     <category term="精华" scheme="https://hackerx2021.github.io/tags/%E7%B2%BE%E5%8D%8E/"/>
