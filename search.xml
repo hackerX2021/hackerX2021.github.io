@@ -178,6 +178,9 @@ sqlmap常用路径：
 自己写tamper.py
 </code></pre>
 <h3 id="2-2XSS："><a href="#2-2XSS：" class="headerlink" title="2.2XSS："></a>2.2XSS：</h3><p>　　xss漏洞原理分析与挖掘方法 - 知乎<br>　　web漏洞 | XSS（跨站攻击脚本）详解<br>　　XSS汇总<br>　　XSS小结 - 先知社区<br>　　2020跨站点脚本[xss]速查表|雨苁<br>　　XSSer自动化工具<br>　　XSStrike 自动化绕过WAF<br>　　xss payload字典 burp爆破　<br>　　客服对话系统上XSS打cookie<br>　　搭建XSS平台  3s.wf/<br>　　xssor.io</p>
+<h3 id="2-3文件上传"><a href="#2-3文件上传" class="headerlink" title="2.3文件上传"></a>2.3文件上传</h3><p>　　字典生成 <a href="https://github.com/c0ny1/upload-fuzz-dic-builder">https://github.com/c0ny1/upload-fuzz-dic-builder</a><br>　　<br>　　<strong>文件上传绕过总结，详见笔记</strong>
+　　
+　　</p>
 ]]></content>
       <categories>
         <category>归纳总结</category>
