@@ -67,7 +67,7 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">　　python pydictor.py -tool uniqifer &#x2F;tmp&#x2F;dicts.txt --output &#x2F;tmp&#x2F;uniq.txt</span><br></pre></td></tr></table></figure>
 <h2 id="2-人工浏览-逐个请求burp"><a href="#2-人工浏览-逐个请求burp" class="headerlink" title="2.人工浏览\逐个请求burp"></a>2.人工浏览\逐个请求burp</h2><p>　　非常重要,有必要手动去浏览每个页面，点击页面上每一个跳转，这样在Burp的sitemap里面就可以出现这些请求和响应。<br>　　图片后台地址\图片后面的信息<br>　　跳转参数\奇怪的参数<br>　　泄露邮箱等社工信息<br>　　业务逻辑\架构</p>
 <h2 id="3-自动化"><a href="#3-自动化" class="headerlink" title="3.自动化"></a>3.自动化</h2><p>　　自动化渗透测试框架:(待补充)<br>　　Sn1per<br>　　Ary<br>　　自动化信息收集效率较高，从github上多找一找，也可以自己写</p>
-<h1 id="0x03-漏洞挖掘"><a href="#0x03-漏洞挖掘" class="headerlink" title="0x03 漏洞挖掘"></a>0x03 漏洞挖掘</h1><h2 id="1-漏洞扫描工具"><a href="#1-漏洞扫描工具" class="headerlink" title="1.漏洞扫描工具"></a>1.漏洞扫描工具</h2><p>　　注意:登录类网站扫描要带cookies扫才能扫到</p>
+<h1 id="0x02-漏洞挖掘"><a href="#0x02-漏洞挖掘" class="headerlink" title="0x02 漏洞挖掘"></a>0x02 漏洞挖掘</h1><h2 id="1-漏洞扫描工具"><a href="#1-漏洞扫描工具" class="headerlink" title="1.漏洞扫描工具"></a>1.漏洞扫描工具</h2><p>　　注意:登录类网站扫描要带cookies扫才能扫到</p>
 <h3 id="1-1Nikto-Web服务漏洞扫描器"><a href="#1-1Nikto-Web服务漏洞扫描器" class="headerlink" title="1.1Nikto Web服务漏洞扫描器"></a>1.1Nikto Web服务漏洞扫描器</h3><p>　　Tips:利用-Format选项来导出特定格式的扫描结果，使扫描结果更容易阅读和分析。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nikto -host http:&#x2F;&#x2F;example.com -output ~&#x2F;nikto.html -Format html</span><br></pre></td></tr></table></figure>
 <pre><code>NIKTO使用方法：
