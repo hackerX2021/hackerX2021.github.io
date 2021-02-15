@@ -178,9 +178,10 @@ sqlmap常用路径：
 自己写tamper.py
 </code></pre>
 <h3 id="2-2XSS："><a href="#2-2XSS：" class="headerlink" title="2.2XSS："></a>2.2XSS：</h3><p>　　xss漏洞原理分析与挖掘方法 - 知乎<br>　　web漏洞 | XSS（跨站攻击脚本）详解<br>　　XSS汇总<br>　　XSS小结 - 先知社区<br>　　2020跨站点脚本[xss]速查表|雨苁<br>　　XSSer自动化工具<br>　　XSStrike 自动化绕过WAF<br>　　xss payload字典 burp爆破　<br>　　客服对话系统上XSS打cookie<br>　　搭建XSS平台  3s.wf/<br>　　xssor.io</p>
-<h3 id="2-3文件上传"><a href="#2-3文件上传" class="headerlink" title="2.3文件上传"></a>2.3文件上传</h3><p>　　字典生成 <a href="https://github.com/c0ny1/upload-fuzz-dic-builder">https://github.com/c0ny1/upload-fuzz-dic-builder</a><br>　　<br>　　<strong>文件上传绕过总结，详见笔记</strong>
-　　
-　　</p>
+<h3 id="2-3文件上传"><a href="#2-3文件上传" class="headerlink" title="2.3文件上传"></a>2.3文件上传</h3><p>　　字典生成 <a href="https://github.com/c0ny1/upload-fuzz-dic-builder">https://github.com/c0ny1/upload-fuzz-dic-builder</a><br>　　<br>　　<strong>文件上传绕过总结，详见笔记</strong><br>　　<br>　　<br>　<br>　　目录穿越<br>　　上传后如果没有被文件重命名，可以在文件名值做目录跳转<br>　　　　注意一些像目录的参数名<br>　　　　　　dir　path　location　url<br>　　　　文件头绕过<br>　　　　　　修改上传类型 Content-Type<br>　　<br>　　双文件上传<br>　　<br>　　截断<br>　　　　长文件名<br>　　　　长Content-Disposition<br>　　　　%00截断<br>　　特殊文件<br>　　　　svg / html / htm / swf<br>　　　　　xss<br>　　　　pdf<br>　　　　　chrome 里可以跳转<br>　　　　cer / asa / spx / php5 / phtml<br>　　　　　可能会被当做动态语言解析<br>　　.htaccess / .user.ini  / web.config / web.xml<br>　　　　　修改解析规则<br>　　.xls / .xlsx<br>　　　　　POI Excel XXE<br>　　.tar / .tar.gz / .zip<br>　　　　　可能存在文件释放目录跳转问题<br>　　.pkl<br>　　　　　python反序列化文件<br>　　.xml<br>　　　　　可能有 XXE<br>　　.yaml / .yml<br>　　　　　YAML 反序列化<br>　　.jar / .class<br>　　　　　上传到 java classpath 的目录下，类被加载时执行代码<br>　　无大小和次数限制<br>　　　　　无限上传制造垃圾数据堵死硬盘<br>　　有图片加工的地方可以注意一下imagemagick命令执行</p>
+<p>　　文件读取<br>　　　　读取系统敏感文件<br>　　文件包含<br>　　　　可读取文件或代码执行<br>　　文件删除<br>　　　　删除配置文件可破坏网站<br>　　　　删除安装锁可重装<br>　　文件解压<br>　　　　如果上传文件为 tar / tar.gz 类型，可以尝试构压缩包内文件名为../../../../xxx 的tar包<br>　　文件导出<br>　　　　如果是CSV 或者 Excel可以注意一下CSV注入<br>　　　　=2222-1<br>　　　　-1+1=2222-1<br>　　　　@=2222-1<br>　　　　\r\n=2222-1<br>　　　　111,=2222-1,</p>
+<h3 id="2-4命令执行"><a href="#2-4命令执行" class="headerlink" title="2.4命令执行"></a>2.4命令执行</h3><p>　　命令注入<br>    –xxxx 参数注入<br>    | 和 | | 与符号<br>    &amp; 和 &amp;&amp; 与符号<br>    ; 分号<br>    ${}</p>
+<p>　　代码执行<br>表达式<br>freemarker<br>OGNL<br>Spel<br>jsel<br>非表达式<br>php<br>eval<br>assert<br>call_user_func() / call_user_func_array()<br>preg_replace()<br>create_function()<br>array_map()<br>array_filter()<br>usort() / uasort()<br>反序列化<br>php 源文件拼接写入<br>java<br>反序列化<br>远程 jar 加载<br>反射机制<br>jsp 源文件拼接写入</p>
 ]]></content>
       <categories>
         <category>归纳总结</category>
