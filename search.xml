@@ -105,7 +105,7 @@ IDS逃避技术：
 </code></pre>
 <h3 id="1-2AWVS漏扫"><a href="#1-2AWVS漏扫" class="headerlink" title="1.2AWVS漏扫"></a>1.2AWVS漏扫</h3><p>　　这个没什么好说的，破解版到处都是。</p>
 <h3 id="1-3NESSUS"><a href="#1-3NESSUS" class="headerlink" title="1.3NESSUS"></a>1.3NESSUS</h3><p>　　实时更新插件的漏扫，很好用，就是激活流程麻烦。<br>　　<a href="https://www.wuyini.cn/765.html">https://www.wuyini.cn/765.html</a></p>
-<h3 id="1-4Xray自动化自动化的漏洞挖掘"><a href="#1-4Xray自动化自动化的漏洞挖掘" class="headerlink" title="1.4Xray自动化自动化的漏洞挖掘"></a>1.4Xray自动化自动化的漏洞挖掘</h3><p>　　burp+xray：<br>　　　　BurpSuite + Xray 被动扫描配置 - Ritte - 博客园<br>　　或者直接挂浏览器，点到哪里，扫到哪里<br>　　xray+各种漏扫联动</p>
+<h3 id="1-4Xray自动化的漏洞挖掘"><a href="#1-4Xray自动化的漏洞挖掘" class="headerlink" title="1.4Xray自动化的漏洞挖掘"></a>1.4Xray自动化的漏洞挖掘</h3><p>　　burp+xray：<br>　　　　BurpSuite + Xray 被动扫描配置 - Ritte - 博客园<br>　　或者直接挂浏览器，点到哪里，扫到哪里<br>　　xray+各种漏扫联动</p>
 <h3 id="1-5Fuzz"><a href="#1-5Fuzz" class="headerlink" title="1.5Fuzz"></a>1.5Fuzz</h3><p>　　Fuzz可以发现应用程序中没有被引用但是确实是可以访问的页面。<br>　　Discover Content是Burp中专门用于此目的的工具。<br>　　Burp Intruder也可以通过字典攻击来实施强制浏览(通常是在url参数和文件路径部分进行修改)，爆破、注入等。<br>　　FuzzDB包含一些用于此目的的非常牛逼的字典。</p>
 <h2 id="2-挖掘漏洞"><a href="#2-挖掘漏洞" class="headerlink" title="2.挖掘漏洞"></a>2.挖掘漏洞</h2><h3 id="2-1SQL注入："><a href="#2-1SQL注入：" class="headerlink" title="2.1SQL注入："></a>2.1SQL注入：</h3><p>　　初步测试：见框就上，加’ “ ) ))% and 1=1 and 1=2　and2-1  or ，<br>　　抓包爆破常用SQL注入payload字典，上burp intruder<br>　　<strong>纯手工注入和手工绕过waf，详见笔记。</strong><br>　　通过搜索引擎，批量查找注入点，详见笔记。<br>　　然后用傀儡注入点批量搜集工具</p>
 <p>　　实操案例：<br>　　sql注入思路（登录界面）和网络常用端口_u011975363的专栏-CSDN博客<br>　　超级SQL注入工具（github）</p>
